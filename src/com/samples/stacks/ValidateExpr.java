@@ -20,6 +20,7 @@ public class ValidateExpr {
             if (BRACES.containsKey(expr.charAt(i))) {
                 checker.push(expr.charAt(i));
             } else if (BRACES.values().contains(expr.charAt(i))) {
+                if (checker.isEmpty()) return false;
                 Character top = checker.pop();
                 if (expr.charAt(i) != BRACES.get(top)) {
                     return false;
@@ -30,6 +31,6 @@ public class ValidateExpr {
     }
 
     public void testSamples() {
-        System.out.println("Expression is " + isValid("{<[]>()}[]"));
+        System.out.println("Expression is " + isValid("]"));
     }
 }
